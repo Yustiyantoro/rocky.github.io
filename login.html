@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <title>Login - E-Learning Unpam</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    body{display:flex;align-items:center;justify-content:center;height:100vh;background:var(--clr-primary);color:#fff}
+    .card{background:#fff;color:var(--clr-text);padding:2rem;border-radius:8px;width:90%;max-width:320px}
+    .card h2{margin-bottom:1rem;text-align:center}
+    .card input{width:100%;padding:.75rem;margin:.5rem 0;border:1px solid #ccc;border-radius:8px}
+    .card button{width:100%;padding:.75rem;background:var(--clr-primary);color:#fff;border:none;border-radius:8px;cursor:pointer}
+    .error{color:#e74c3c;font-size:.9rem;text-align:center;margin-top:.5rem}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Login E-Learning</h2>
+    <input id="user" placeholder="NIM / Username"/>
+    <input id="pass" type="password" placeholder="PIN"/>
+    <button onclick="login()">Login</button>
+    <div id="err" class="error"></div>
+  </div>
+
+  <script>
+    const allowed = { "admin01": "admin01" };
+
+    function login() {
+      const u = document.getElementById('user').value.trim();
+      const p = document.getElementById('pass').value.trim();
+      if (allowed[u] === p) {
+        localStorage.setItem('logged', u);
+        location.href = 'index.html';
+      } else {
+        document.getElementById('err').textContent = 'NIM atau PIN salah';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pertemuan 2 - Struktur Dasar HTML5 | E-Learning Unpam</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dark-mode.css" id="theme" disabled />
+  <link rel="stylesheet" href="css/print.css" media="print">
+  <script src="js/auth.js"></script>
+</head>
+<body>
+  <!-- Proteksi login -->
+  <script>if (!localStorage.getItem('logged')) location.href = 'login.html';</script>
+
+  <!-- Header -->
+  <header>
+    <img src="assets/img/icon/logo.png" alt="Logo" class="logo"/>
+    <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+  </header>
+
+  <!-- KONTEN KOSONG – Anda isi nanti -->
+  <main class="container-materi">
+    <h1>Pertemuan 2 – Struktur Dasar HTML5</h1>
+
+    <!-- Konten kosong – Anda isi PDF, video, form, dsb. -->
+    <div class="content-area">
+      <p>Silakan isi konten di sini:</p>
+      <ul>
+        <li>PDF / video / slide di bagian ini</li>
+        <li>Google Form di halaman terpisah</li>
+        <li>Forum sederhana (opsional)</li>
+      </ul>
+    </div>
+
+    <!-- Pager -->
+    <nav class="pager">
+      <a href="index.html">📚 Daftar Materi</a>
+      <a href="pertemuan-02.html">Selanjutnya →</a>
+    </nav>
+  </main>
+
+  <!-- JavaScript -->
+  <script src="js/data.js"></script>
+  <script>
+    /* ---------- DARK MODE ---------- */
+    const toggle = document.getElementById('theme-toggle');
+    const themeLink = document.getElementById('theme');
+    toggle.addEventListener('click', () => {
+      const isDark = themeLink.disabled = !themeLink.disabled;
+      toggle.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('dark', isDark);
+      document.body.classList.toggle('dark', isDark);
+    });
+    if (localStorage.getItem('dark') === 'true') {
+      themeLink.disabled = false;
+      toggle.textContent = '☀️';
+      document.body.classList.add('dark');
+    }
+  </script>
+<style>
+  /* ===== TAMPILAN RAPIH & AKADEMIS ===== */
+  .container-materi{ padding: 2rem 1.5rem; max-width: 900px; margin: 0 auto; }
+
+  .content-area{ margin-top: 2rem; }
+
+  /* Card akademis */
+  .card-academic{
+    background: #f9f9f9;
+    border-left: 5px solid var(--clr-accent1);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    margin-bottom: 1.5rem;
+  }
+  .card-academic h2{ margin-bottom: 1rem; color: var(--clr-primary); }
+
+  /* Tombol dash */
+  .btn-dash{
+    background: var(--clr-primary);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background .2s;
+  }
+  .btn-dash:hover{ background: rgba(0,61,130,.9); }
+
+  /* Dark mode */
+  body.dark .card-academic{ background: #1e1e1e; color: #e0e0e0; }
+  body.dark .btn-dash{ background: var(--clr-primary); color: #fff; }
+
+  /* Rapihkan heading */
+  h1, h2{ color: var(--clr-primary); margin-bottom: 1rem; }
+  p{ line-height: 1.7; margin-bottom: 1rem; }
+  ul{ padding-left: 1.2rem; margin-bottom: 1rem; }
+  li{ margin-bottom: 0.5rem; }
+
+  /* Rapihkan form */
+  input, textarea{
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: var(--radius);
+    font-family: var(--font-main);
+  }
+</style>
+
+</body>
+</html>
